@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :users, except: [:new]
-  resources :posts
+  resources :posts do
+    resources :steps, except: [:index]
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
