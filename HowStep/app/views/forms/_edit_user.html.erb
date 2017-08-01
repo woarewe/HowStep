@@ -1,0 +1,23 @@
+<%= form_for  @user, action: { method: 'udpate'} do |f|%>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <div class="col-md-12"><br/></div>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <div class="col-md-12"><br/></div>
+
+    <div class="row">
+      <div class="col-md-6 align-middle">
+        <%= f.submit t('views.forms.save'), class: 'btn btn-success w-100' %>
+      </div>
+<% end %>
+
+      <div class="col-md-6">
+        <%= button_to t('views.forms.destroy'), @user, method: :delete, data: { confirm: t('views.forms.confirm') },
+                      class: 'btn btn-danger w-100' %>
+      </div>
+    </div>
