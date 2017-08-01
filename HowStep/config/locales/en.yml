@@ -48,3 +48,10 @@ en:
       save: 'Update account'
       destroy: 'Destroy account'
       confirm: 'Are you sure?'
+      user:
+        name: 'Name'
+        email: 'Email'
+      posts:
+        title: 'Title'
+        create: 'Create'
+
