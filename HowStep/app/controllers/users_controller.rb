@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    check_user_rights :edit, @user
   end
 
   def update
@@ -36,4 +38,12 @@ class UsersController < ApplicationController
       flash.now[:alert] = t('controllers.users.update.alert')
     end
   end
+
+  def check_user_rights(action, model)
+    unless can? action, model
+      flash['alert'] = t('controllers.cancan.alert')
+      redirect_to root_path
+    end
+  end
+
 end
