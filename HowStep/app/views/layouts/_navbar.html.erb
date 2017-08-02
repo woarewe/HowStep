@@ -6,14 +6,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item active align">
+        <a class="nav-link" href=<%= posts_path %>>
+          <div class="align-center">
+            <%= t('header.posts')%>
+          </div>
+        </a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href=<%= root_path %>><%= t('header.posts')%></a>
+        <a class="nav-link" href=<%= users_path %>><%= t('header.users') %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <%= render 'layouts/sign_in_item' %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
