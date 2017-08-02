@@ -55,7 +55,8 @@ en:
       update:
         alert: 'An error has occurred. Please refresh the page or try again later.'
         notice: 'Post has been successfully updated.'
-
+    cancan:
+      alert: 'You do not have rights for this action.'
 
   views:
     forms:
