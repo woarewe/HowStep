@@ -41,6 +41,9 @@ en:
         notice: 'Your profile has been successfully updated.'
       destroy:
         notice: 'Account was successfully deleted.'
+    posts:
+      destroy:
+        notice: 'Post was successfully deleted.'
 
 
   views:
@@ -54,4 +57,8 @@ en:
       posts:
         title: 'Title'
         create: 'Create'
+        menu: 'To main'
+        update: 'Update post'
+        destroy: 'Destroy post'
+
 

@@ -1,0 +1,16 @@
+<%= form_for @post, action: { method: 'update' } do |f| %>
+
+    <%= f.label t('views.forms.posts.title') %>
+    <%= f.text_field :title, class: 'form-control'%>
+
+    <hr/>
+    <div class="row">
+      <div class="col-md-6">
+    <%= f.submit t('views.forms.posts.update'), class: 'btn btn-success w-100' %>
+      </div>
+<% end %>
+    <div class="col-md-6">
+      <%= button_to t('views.forms.posts.destroy'), @post, method: :delete, data: { confirm: t('views.forms.confirm') },
+                  class: 'btn btn-danger w-100' %>
+    </div>
+    </div>
