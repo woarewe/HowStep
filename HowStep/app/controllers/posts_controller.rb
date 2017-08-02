@@ -17,11 +17,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user.posts.create(post_params)
-    redirect_to root_path
+    @post = current_user.posts.create(post_params)
+    redirect_to action: 'edit', id: @post.id
   end
 
   def destroy
+    Post.find(params[:id]).destroy
+    flash[:notice] = t('controllers.posts.destroy.notice')
+    redirect_to root_path
   end
 
   private

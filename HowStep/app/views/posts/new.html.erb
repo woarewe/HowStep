@@ -4,13 +4,21 @@
       <%= form_for @post, action: {method: 'create'} do |f| %>
 
           <%= f.label t('views.forms.posts.title') %>
-          <%= f.text_field :title, class: 'form-control' %>
+          <%= f.text_field :title, class: 'form-control w-100' %>
 
-          <br>
-
-          <%= f.submit t('views.forms.posts.create'), class: 'btn btn-success w-50' %>
+          <hr/>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <%= f.submit t('views.forms.posts.create'), class: 'btn btn-success w-100' %>
+            </div>
 
       <% end %>
+            <div class="col-md-5">
+              <%= link_to t('views.forms.posts.menu'), root_path, class: 'btn btn-primary w-100' %>
+            </div>
+      <div class="col-md-1"></div>
+    </div>
   </div>
   <div class="col-md-4"></div>
 </div>
