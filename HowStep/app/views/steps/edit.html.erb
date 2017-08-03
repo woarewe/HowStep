@@ -20,7 +20,7 @@
           </button>
         </div>
         <div class="col-md-4">
-          <button id="add_image" class="btn btn-info w-100">
+          <button id="upload_widget_opener" class="btn btn-info w-100">
             <%= t('views.forms.steps.items.image.') %>
           </button>
         </div>
@@ -30,7 +30,10 @@
           </button>
         </div>
       <div class="col-md-12">
-        <ul class="list-group" id="items">
+        <hr/>
+      </div>
+      <div class="col-md-12">
+        <ul id="items" class="list-group" style="margin-inside: 5px;">
         </ul>
       </div>
     </div>
@@ -39,3 +42,106 @@
   <div class="col-md-1"></div>
 </div>
 </div>
+
+<script>
+
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+        cloudinary.openUploadWidget({ cloud_name: 'drbv794rq', upload_preset: 'sut1j98o'},
+            function(error, result) { console.log(result[0].secure_url); newImageElement(result[0].secure_url) });
+    }, false);
+
+
+    var newImageElement = function(image_url) {
+        var list_element = $("<li class='list-group-item text-item'</li>");
+        list_element.append($("<label><%= t('views.forms.steps.items.titles.image')%></label>"));
+        var image = $("<img>");
+        $(image).attr("src", image_url);
+        list_element.append(image);
+        var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+        $(list_element).attr("id", "list_element_" + blocks_counter);
+        $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+        $(destroy_button).attr("onclick", "deleteElement(id)");
+        list_element.append(destroy_button);
+        $("#items").append(list_element);
+        blocks_counter++;
+    };
+
+
+    $( function() {
+        $( "#items" ).sortable({ containment: "parent" });
+        $( "#items" ).disableSelection();
+    } );
+        $("#add_text").click(function () {
+            var list_element = $("<li class='list-group-item text-item'</li>");
+            list_element.append($("<label><%= t('views.forms.steps.items.titles.text')%></label>"));
+            list_element.append($("<textarea class='form-control' rows='3' placeholder='<%= t('views.forms.steps.items.placeholders.text') %>'></textarea>"));
+            var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+            $(list_element).attr("id", "list_element_" + blocks_counter);
+            $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+            $(destroy_button).attr("onclick", "deleteElement(id)");
+            list_element.append(destroy_button);
+            $("#items").append(list_element);
+            blocks_counter++;
+        });
+
+        var deleteElement = function (id) {
+            $("#list_element_" + id.split("_")[2]).remove();
+        };
+
+        $("#add_video").click(function () {
+            var list_element = $("<li class='list-group-item video-item'></li>");
+            list_element.append($("<label><%= t('views.forms.steps.items.titles.video')%></label>"));
+            list_element.append($("<input class='form-control' rows='3' placeholder='<%= t('views.forms.steps.items.placeholders.video') %>'></input>"));
+            var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+            $(list_element).attr("id", "list_element_" + blocks_counter);
+            $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+            $(destroy_button).attr("onclick", "deleteElement(id)");
+            list_element.append(destroy_button);
+            $("#items").append(list_element);
+            blocks_counter++;
+        });
+
+
+
+        var setImageDrop = function (id) {
+            var temp_img = id + " img";
+            var temp_div = id + " div";
+            $(id).on('dragover', function () {
+                $(this).addClass('hover');
+            });
+
+            $(id).on('dragleave', function () {
+                $(this).removeClass('hover');
+            });
+            var input_Temp = id + " input";
+            $(input_Temp).on('change', function (e) {
+                var file = this.files[0];
+
+                $(id).removeClass('hover');
+
+                if (this.accept && $.inArray(file.type, this.accept.split(/, ?/)) == -1) {
+                    return alert('File type not allowed.');
+                }
+
+                $(id).addClass('dropped');
+                $(temp_img).remove();
+
+                if ((/^image\/(gif|png|jpeg)$/i).test(file.type)) {
+                    var reader = new FileReader(file);
+
+                    reader.readAsDataURL(file);
+
+                    reader.onload = function (e) {
+                        var data = e.target.result,
+                            $img = $('<img />').attr('src', data).fadeIn();
+                        $(temp_div).html($img);
+                    };
+                } else {
+                    var ext = file.name.split('.').pop();
+
+                    $(temp_div).html(ext);
+                }
+            });
+        };
+
+</script>
