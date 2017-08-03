@@ -1,0 +1,57 @@
+.dropzone {
+  position: relative;
+  border: 2px dotted gray;
+  border-radius: 20px;
+  color: gray;
+  font: bold 24px/200px arial;
+  height: 250px;
+  margin: 30px auto;
+  text-align: center;
+  width: 500px;
+}
+
+.dropzone.hover {
+  border: 2px double #FE5;
+  color: #FE5;
+}
+
+.dropzone.dropped {
+  border:none;
+}
+
+.dropzone div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dropzone img {
+  border-radius: 5px;
+  vertical-align: middle;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.dropzone [type="file"] {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.padding-top {
+  padding-top: 3%;
+}
+
+.ol-item {
+  padding: 10px;
+  border-style: double;
+  border-radius: 15px;
+  border-color: darkgrey;
+  margin: 10px;
+}

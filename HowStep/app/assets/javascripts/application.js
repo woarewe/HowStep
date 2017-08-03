@@ -12,9 +12,9 @@
 //
 //= require add_step.js
 //= require jquery
+//= require jquery-ui
 //= require bootstrap
 //= require cloudinary
 //= require jquery.turbolinks
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .

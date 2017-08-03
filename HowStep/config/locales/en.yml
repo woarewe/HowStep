@@ -82,8 +82,17 @@ en:
         title: 'Step title'
         content: 'Content'
         items:
-          text: 'Add text'
-          image: 'Add image'
-          video: 'Add video'
+          buttons:
+            text: 'Add text'
+            image: 'Add image'
+            video: 'Add video'
+            destroy: 'Destroy'
+          titles:
+            text: 'Text'
+            image: 'Image'
+            video: 'Video'
+          placeholders:
+            text: 'Type here...'
+            video: 'Paste here youtube link...'
 
 
