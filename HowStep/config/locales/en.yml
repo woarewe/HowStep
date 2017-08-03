@@ -39,7 +39,8 @@ en:
         edit: 'Edit'
         post: 'Create post'
         sign:
-          out: 'Sign out'
+          out: 'Log Out'
+          in: 'Sign in'
 
 
   controllers:
@@ -66,11 +67,23 @@ en:
       user:
         name: 'Name'
         email: 'Email'
+        posts:
+          edit: 'Edit'
+          destroy: 'Destroy'
+          show: 'Show'
       posts:
         title: 'Title'
         create: 'Create'
         menu: 'To main'
         update: 'Update post'
         destroy: 'Destroy post'
+      steps:
+        add: 'Add a step'
+        title: 'Step title'
+        content: 'Content'
+        items:
+          text: 'Add text'
+          image: 'Add image'
+          video: 'Add video'
 
 

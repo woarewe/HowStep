@@ -1,26 +1,23 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, except: [:index]
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
     check_user_rights :edit, @user
   end
 
   def update
-    @user = User.find(params[:id])
     check_update( @user)
     render 'edit'
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user.destroy
     flash[:notice] = t('controllers.users.destroy.notice')
     redirect_to root_path
   end
@@ -44,6 +41,10 @@ class UsersController < ApplicationController
       flash['alert'] = t('controllers.cancan.alert')
       redirect_to root_path
     end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

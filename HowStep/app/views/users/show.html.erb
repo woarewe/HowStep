@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col-md-2"></div>
+  <ul class="list-group">
+    <%= render @user.posts  %>
+  </ul>
+  <div class="col-md-2"></div>
+</div>

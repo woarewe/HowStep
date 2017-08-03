@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_post, except: [:index, :create, :new]
+
   def index
     @posts = Post.all
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -13,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @step = Step.new
+    @steps = @post.steps
   end
 
   def create
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @step = Step.new
     check_update(@post)
     render 'edit'
   end
@@ -45,5 +47,9 @@ class PostsController < ApplicationController
     else
       flash.now[:alert] = t('controllers.posts.update.alert')
     end
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

@@ -1,0 +1,10 @@
+<%= form_for [@post, @step] do |f| %>
+
+    <%= f.label t('views.forms.steps.title') %>
+
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <br>
+
+    <%= f.submit t('views.forms.steps.add'), class: 'btn btn-primary w-100' %>
+<% end %>

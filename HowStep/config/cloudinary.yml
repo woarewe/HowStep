@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: drbv794rq
+  api_key: '368125747218771'
+  api_secret: LCja0r4UaycmROJTzV6JYfS-HmI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: drbv794rq
+  api_key: '368125747218771'
+  api_secret: LCja0r4UaycmROJTzV6JYfS-HmI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: drbv794rq
+  api_key: '368125747218771'
+  api_secret: LCja0r4UaycmROJTzV6JYfS-HmI
+  enhance_image_tag: true
+  static_image_support: false
