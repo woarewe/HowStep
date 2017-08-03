@@ -11,7 +11,15 @@
     <%= link_to t('header.profile.sign.out'), destroy_user_session_path, :method => :delete, class: 'dropdown-item' %>
   </div>
   <% else %>
-
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= t('header.profile.sign.in') %>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href=<%= user_twitter_omniauth_authorize_path %>> with Twitter </a>
+        <a class="dropdown-item" href=<%= user_vkontakte_omniauth_authorize_path %>> with Vkontakte </a>
+        <a class="dropdown-item" href=<%= user_facebook_omniauth_authorize_path %>> with Facebook </a>
+        <a class="dropdown-item" href=<%= user_facebook_omniauth_authorize_path %>> with Google </a>
+      </div>
   <% end %>
 </div>
 

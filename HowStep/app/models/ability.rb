@@ -9,6 +9,7 @@ class Ability
       else
         can :create, Post
         can  :manage, User, id: user.id
+        can :manage, Post, user_id: user.id
       end
     end
 end
