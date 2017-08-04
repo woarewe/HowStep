@@ -57,17 +57,17 @@
 
       var content = "";
 
-
       for(var i = 0; i < list_items.length; i++) {
           switch(list_items[i].className.split(' ')[1]) {
               case 'text-item':
-                  content += "<h3>" + list_items[i].childNodes[1].value + "</h3>";
+                  content += "<p>" + list_items[i].childNodes[1].value + "</p>";
                   break;
               case 'image-item':
                   content += "<img src=\"" +  list_items[i].childNodes[1].getAttribute('src') + "\">";
                   break;
               case 'video-item':
-                  content += "<iframe src=\"" + list_items[i].childNodes[1].value + "\"></iframe>";
+                  content +=  "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/" + list_items[i].childNodes[1].value.split("v=")[1]
+                      + "\" frameborder=\"0\" allowfullscreen></iframe>";
           }
           content += ' ';
       }
