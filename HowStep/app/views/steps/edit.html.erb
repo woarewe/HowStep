@@ -38,16 +38,16 @@
       </div>
       <div class="col-md-12">
         <hr/>
-        <button class="btn btn-primary w-100" id="save_step_changes">
-          <%= t('views.forms.steps.items.buttons.save')%>
+        <!--<%= button_to t('views.forms.steps.items.buttons.save'), post_step_path(@post, @step), method: :put, class: 'btn btn-primary w-100', id: 'save_step_changes' %>-->
+        <button id="save_step_changes" class="btn btn-primary w-100">
+            <%= t('views.forms.steps.items.buttons.save') %>
         </button>
       </div>
     </div>
-
   </div>
   <div class="col-md-1"></div>
 </div>
-</div>
+</div>s
 
 <script>
 
@@ -75,9 +75,9 @@
       console.log(content);
 
         $.ajax({
-            url : "/step/update",
-            type : "post",
-            data : content
+            url : '<%= post_step_path(@post, @step) %>',
+            type : "put",
+            data : { content: content, title: $('#step_title').value }
         });
 
     });
