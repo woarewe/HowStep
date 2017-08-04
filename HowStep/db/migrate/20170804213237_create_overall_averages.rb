@@ -1,6 +1,6 @@
 class CreateOverallAverages < ActiveRecord::Migration[4.2]
 
-  def self.up
+def self.up
     create_table :overall_averages do |t|
       t.belongs_to :rateable, :polymorphic => true
       t.float :overall_avg, :null => false
