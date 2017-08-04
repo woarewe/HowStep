@@ -3,6 +3,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <h1 align="center"><%= @post.title %></h1>
+      <%= rating_for @post, 'content' %>
       <hr/>
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
