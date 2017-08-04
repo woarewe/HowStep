@@ -1,12 +1,3 @@
-
 <div class="col-md-9">
-  <a href=<%= post_path(post) %> class="list-group">
-  <%= post.title %></a>
-</div>
-<div class="col-md-3">
-  <% if can? :edit, post %>
-      <%= link_to t('views.forms.user.posts.edit'), edit_post_path(post), class: 'btn btn-warning w-100%' %>
-  <% else %>
-      <%= link_to t('views.forms.user.posts.show'), post_path(post), class: 'btn btn-info btn-lg w-100%' %>
-  <% end %>
+ <%= link_to post.title, post %>
 </div>

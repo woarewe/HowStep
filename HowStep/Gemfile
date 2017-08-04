@@ -70,3 +70,5 @@ gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 gem 'rails-assets-tether'
 gem 'acts-as-taggable-on'
+gem 'will_paginate'
+
