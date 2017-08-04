@@ -22,9 +22,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.update(content: params[:content], title: params[:title])
-        format.html { redirect_to edit_post_step_path(@post, @step), notice: 'All good!'}
-        format.js
-        format.json { render json: @step, status: :created, location: @step }
+        format.html { redirect_to edit_post_path(@post), notice: t('controllers.steps.update.notice') }
       end
     end
   end
