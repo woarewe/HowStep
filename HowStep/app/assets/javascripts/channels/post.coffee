@@ -1,4 +1,4 @@
-jQuery ->
+$(document).on 'turbolinks:load', ->
   App.post = App.cable.subscriptions.create {channel: "PostChannel", id: `$("#input_Text").data("postId")`},
     connected: ->
 # Called when the subscription is ready for use on the server
@@ -14,6 +14,7 @@ jQuery ->
 
   $(document).on 'keypress', '[data-behavior~=post_speaker]', (event) ->
     if event.keyCode is 13
-      App.post.speak event.target.value
-      event.target.value = ''
-      event.preventDefault()
+      if event.target.value != ""
+        App.post.speak event.target.value
+        event.target.value = ''
+        event.preventDefault()
