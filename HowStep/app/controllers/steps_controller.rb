@@ -15,6 +15,10 @@ class StepsController < ApplicationController
   def destroy
   end
 
+  def update
+    redirect_to root_path
+  end
+
   private
 
   def steps_params

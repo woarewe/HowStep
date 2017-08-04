@@ -55,24 +55,31 @@
     $('#save_step_changes').click( function() {
       var list_items = document.getElementsByClassName("list-group-item");
 
-      var steps_data = "";
+      var content = "";
 
 
       for(var i = 0; i < list_items.length; i++) {
           switch(list_items[i].className.split(' ')[1]) {
               case 'text-item':
-                  steps_data += "<h3>" + list_items[i].childNodes[1].value + "</h3>";
+                  content += "<h3>" + list_items[i].childNodes[1].value + "</h3>";
                   break;
               case 'image-item':
-                  steps_data += "<img src=\"" +  list_items[i].childNodes[1].getAttribute('src') + "\">";
+                  content += "<img src=\"" +  list_items[i].childNodes[1].getAttribute('src') + "\">";
                   break;
               case 'video-item':
-                  steps_data += "<iframe src=\"" + list_items[i].childNodes[1].value + "\"></iframe>";
+                  content += "<iframe src=\"" + list_items[i].childNodes[1].value + "\"></iframe>";
           }
-          steps_data += ' ';
+          content += ' ';
       }
 
-      console.log(steps_data);
+      console.log(content);
+
+        $.ajax({
+            url : "/step/update",
+            type : "post",
+            data : content
+        });
+
     });
 
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
@@ -132,46 +139,5 @@
         });
 
 
-
-        var setImageDrop = function (id) {
-            var temp_img = id + " img";
-            var temp_div = id + " div";
-            $(id).on('dragover', function () {
-                $(this).addClass('hover');
-            });
-
-            $(id).on('dragleave', function () {
-                $(this).removeClass('hover');
-            });
-            var input_Temp = id + " input";
-            $(input_Temp).on('change', function (e) {
-                var file = this.files[0];
-
-                $(id).removeClass('hover');
-
-                if (this.accept && $.inArray(file.type, this.accept.split(/, ?/)) == -1) {
-                    return alert('File type not allowed.');
-                }
-
-                $(id).addClass('dropped');
-                $(temp_img).remove();
-
-                if ((/^image\/(gif|png|jpeg)$/i).test(file.type)) {
-                    var reader = new FileReader(file);
-
-                    reader.readAsDataURL(file);
-
-                    reader.onload = function (e) {
-                        var data = e.target.result,
-                            $img = $('<img />').attr('src', data).fadeIn();
-                        $(temp_div).html($img);
-                    };
-                } else {
-                    var ext = file.name.split('.').pop();
-
-                    $(temp_div).html(ext);
-                }
-            });
-        };
 
 </script>
