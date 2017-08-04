@@ -36,6 +36,12 @@
         <ul id="items" class="list-group" style="margin-inside: 5px;">
         </ul>
       </div>
+      <div class="col-md-12">
+        <hr/>
+        <button class="btn btn-primary w-100" id="save_step_changes">
+          <%= t('views.forms.steps.items.buttons.save')%>
+        </button>
+      </div>
     </div>
 
   </div>
@@ -45,6 +51,30 @@
 
 <script>
 
+
+    $('#save_step_changes').click( function() {
+      var list_items = document.getElementsByClassName("list-group-item");
+
+      var steps_data = "";
+
+
+      for(var i = 0; i < list_items.length; i++) {
+          switch(list_items[i].className.split(' ')[1]) {
+              case 'text-item':
+                  steps_data += "<h3>" + list_items[i].childNodes[1].value + "</h3>";
+                  break;
+              case 'image-item':
+                  steps_data += "<img src=\"" +  list_items[i].childNodes[1].getAttribute('src') + "\">";
+                  break;
+              case 'video-item':
+                  steps_data += "<iframe src=\"" + list_items[i].childNodes[1].value + "\"></iframe>";
+          }
+          steps_data += ' ';
+      }
+
+      console.log(steps_data);
+    });
+
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
         cloudinary.openUploadWidget({ cloud_name: 'drbv794rq', upload_preset: 'sut1j98o'},
             function(error, result) { console.log(result[0].secure_url); newImageElement(result[0].secure_url) });
@@ -52,7 +82,7 @@
 
 
     var newImageElement = function(image_url) {
-        var list_element = $("<li class='list-group-item text-item'</li>");
+        var list_element = $("<li class='list-group-item image-item'</li>");
         list_element.append($("<label><%= t('views.forms.steps.items.titles.image')%></label>"));
         var image = $("<img>");
         $(image).attr("src", image_url);

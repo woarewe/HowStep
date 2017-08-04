@@ -87,6 +87,7 @@ en:
             image: 'Add image'
             video: 'Add video'
             destroy: 'Destroy'
+            save: 'Save changes'
           titles:
             text: 'Text'
             image: 'Image'
