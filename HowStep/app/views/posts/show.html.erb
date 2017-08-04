@@ -6,7 +6,10 @@
       <hr/>
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
-      <%= render @post.comments %>
+      <div id="comments">
+         <%= render @post.comments %>
+      </div>
+      <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
     </div>
     <div class="col-md-2"></div>
   </div>
