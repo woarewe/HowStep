@@ -13,6 +13,7 @@
 //= require add_step.js
 //= require jquery
 //= require jquery-ui
+//= require tether
 //= require bootstrap
 //= require cloudinary
 //= require jquery.turbolinks

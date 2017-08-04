@@ -121,7 +121,3 @@
 // });
 
 var blocks_counter = 1;
-
-$(function  () {
-    $("#items").sortable();
-});
