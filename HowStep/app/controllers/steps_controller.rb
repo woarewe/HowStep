@@ -1,4 +1,5 @@
 class StepsController < ApplicationController
+  respond_to :js, :html, :json
 
   def create
     @post = Post.find(params[:post_id])
@@ -16,7 +17,16 @@ class StepsController < ApplicationController
   end
 
   def update
-    redirect_to root_path
+    @post = Post.find(params[:post_id])
+    @step = @post.steps.find(params[:id])
+
+    respond_to do |format|
+      if @step.update(content: params[:content], title: params[:title])
+        format.html { redirect_to edit_post_step_path(@post, @step), notice: 'All good!'}
+        format.js
+        format.json { render json: @step, status: :created, location: @step }
+      end
+    end
   end
 
   private
