@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1 align="center"><%= @post.title %></h1>
+      <hr/>
+      <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
+      <hr/>
+      <%= render @post.comments %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
 
   resources :posts do
-    resources :steps, except: [:index, :update]
+    resources :steps, except: [:index]
   end
+
+  post '/step/update', to: 'steps#update'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
