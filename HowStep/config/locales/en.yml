@@ -99,6 +99,7 @@ en:
           placeholders:
             text: 'Type here...'
             video: 'Paste here youtube link...'
-
+      comments:
+        placeholder: 'Leave a comment...'
 
 
