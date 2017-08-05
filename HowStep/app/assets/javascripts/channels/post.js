@@ -1,7 +1,7 @@
 App.post = App.cable.subscriptions.create('PostChannel', {
         received: function(data) {
             $("#comments").removeClass('hidden');
-            return $('#comments').append(getCommentElement(data));
+            return $('#comments').append(data['comment']);
         }
     });
 

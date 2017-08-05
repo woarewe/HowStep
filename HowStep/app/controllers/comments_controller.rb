@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.user = current_user
-    ActionCable.server.broadcast 'comments', comment_data_hash(comment) if comment.save
+    comment.save
   end
 
   private
