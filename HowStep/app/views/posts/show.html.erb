@@ -8,11 +8,11 @@
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
       <div class="panel panel-default">
-        <div class="panel-body" id="comments" data-post=<%= @post.id %>>
+        <div class="panel-body" id="comments" data-post-id=<%= @post.id %>>
           <%= render @post.comments %>
         </div>
       </div>
-      <%= render partial: 'comments/comment_form', locals: {comment: @comment, post: @post} %>
+      <textarea id="comment_area" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %>  row="2" type="text" data-behavior="post_speaker" class="form-control"></textarea>
     </div>
     <div class="col-md-2"></div>
   </div>
