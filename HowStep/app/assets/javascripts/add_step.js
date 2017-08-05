@@ -1,123 +1,94 @@
-// $(document).on('turbolinks:load', function() {
-//
-// var blocks_counter = 1;
-//
-//     $("#add_text").click(function () {
-//         var list_element = $("<li class='text-item'></li>");
-//         var form = $("<form class='ol-item'></form>");
-//         var form_group = $("<div class='form-group'></div>");
-//         form_group.append($("<label>Text</label>"));
-//         form_group.append($("<textarea class='form-control' rows='3' placeholder='Type here...'></textarea>"));
-//         var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin'>Destroy</button>"));
-//         $(list_element).attr("id", "list_element_" + blocks_counter);
-//         $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
-//         $(destroy_button).attr("onclick", "deleteElement(id)");
-//         form_group.append(destroy_button);
-//
-//         form.append(form_group);
-//         list_element.append(form);
-//         $("#items").append(list_element);
-//         blocks_counter++;
-//     });
-//
-//     var deleteElement = function (id) {
-//         $("#list_element_" + id.split("_")[2]).remove();
-//     };
-//
-//     $("#add_video").click(function () {
-//         var list_element = $("<li class='video-item'></li>");
-//         var form = $("<form class='ol-item'></form>");
-//         var form_group = $("<div class='form-group'></div>");
-//         form_group.append($("<label>Video</label>"));
-//         form_group.append($("<input class='form-control' placeholder='Paste here youtube link...'></textarea>"));
-//         var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin'>Destroy</button>"));
-//         $(list_element).attr("id", "list_element_" + blocks_counter);
-//         $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
-//         $(destroy_button).attr("onclick", "deleteElement(id)");
-//         form_group.append(destroy_button);
-//
-//         form.append(form_group);
-//         list_element.append(form);
-//         $("#items").append(list_element);
-//         blocks_counter++;
-//     });
-//
-//     $("#add_image").click(function () {
-//         var list_element = $("<li class='video-item'></li>");
-//         var form = $("<form class='ol-item'></form>");
-//         var form_group = $("<div class='form-group'></div>");
-//         var drop_zone = $(" <div class='dropzone'></div>");
-//
-//         drop_zone.append($("<div>Drop here...</div>"));
-//         drop_zone.append($("<input type='file' accept='image/png, image/jpeg'/>"));
-//         $(drop_zone).attr("id", "drop_zone_" + blocks_counter);
-//
-//
-//         form_group.append($("<label>Image</label>"));
-//         form_group.append(drop_zone);
-//
-//         var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin'>Destroy</button>"));
-//         $(list_element).attr("id", "list_element_" + blocks_counter);
-//         $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
-//         $(destroy_button).attr("onclick", "deleteElement(id)");
-//         form_group.append(destroy_button);
-//
-//         form.append(form_group);
-//         list_element.append(form);
-//         $("#items").append(list_element);
-//         blocks_counter++;
-//
-//         $(function () {
-//             var temp = document.getElementsByClassName("dropzone");
-//             console.log(temp);
-//             for (var i = 0; i < temp.length; i++) {
-//                 setImageDrop("#" + temp[i].id)
-//             }
-//         });
-//
-//     });
-//
-//
-//     var setImageDrop = function (id) {
-//         var temp_img = id + " img";
-//         var temp_div = id + " div";
-//         $(id).on('dragover', function () {
-//             $(this).addClass('hover');
-//         });
-//
-//         $(id).on('dragleave', function () {
-//             $(this).removeClass('hover');
-//         });
-//         var input_Temp = id + " input";
-//         $(input_Temp).on('change', function (e) {
-//             var file = this.files[0];
-//
-//             $(id).removeClass('hover');
-//
-//             if (this.accept && $.inArray(file.type, this.accept.split(/, ?/)) == -1) {
-//                 return alert('File type not allowed.');
-//             }
-//
-//             $(id).addClass('dropped');
-//             $(temp_img).remove();
-//
-//             if ((/^image\/(gif|png|jpeg)$/i).test(file.type)) {
-//                 var reader = new FileReader(file);
-//
-//                 reader.readAsDataURL(file);
-//
-//                 reader.onload = function (e) {
-//                     var data = e.target.result,
-//                         $img = $('<img />').attr('src', data).fadeIn();
-//                     $(temp_div).html($img);
-//                 };
-//             } else {
-//                 var ext = file.name.split('.').pop();
-//
-//                 $(temp_div).html(ext);
-//             }
-//         });
-//     };
-// });
-
 var blocks_counter = 1;
+
+$(documet).on('turbolinks:ready', function () {
+
+
+$('#save_step_changes').click( function() {
+    var list_items = document.getElementsByClassName("list-group-item");
+
+    var content = "";
+
+    for(var i = 0; i < list_items.length; i++) {
+        switch(list_items[i].className.split(' ')[1]) {
+            case 'text-item':
+                content += "<p>" + list_items[i].childNodes[1].value + "</p>";
+                break;
+            case 'image-item':
+                content += "<img src=\"" +  list_items[i].childNodes[1].getAttribute('src') + "\">";
+                break;
+            case 'video-item':
+                content +=  "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/" + list_items[i].childNodes[1].value.split("v=")[1]
+                    + "\" frameborder=\"0\" allowfullscreen></iframe>";
+        }
+        content += ' ';
+    }
+
+    console.log(content);
+
+    $.ajax({
+        url : '<%= post_step_path(@post, @step) %>',
+        type : "put",
+        data : { content: content, title: $('#step_title').value }
+    });
+
+});
+
+document.getElementById("upload_widget_opener").addEventListener("click", function() {
+    cloudinary.openUploadWidget({ cloud_name: 'drbv794rq', upload_preset: 'sut1j98o'},
+        function(error, result) { console.log(result[0].secure_url); newImageElement(result[0].secure_url) });
+}, false);
+
+
+var newImageElement = function(image_url) {
+    var list_element = $("<li class='list-group-item image-item'</li>");
+    list_element.append($("<label><%= t('views.forms.steps.items.titles.image')%></label>"));
+    var image = $("<img>");
+    $(image).attr("src", image_url);
+    list_element.append(image);
+    var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+    $(list_element).attr("id", "list_element_" + blocks_counter);
+    $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+    $(destroy_button).attr("onclick", "deleteElement(id)");
+    list_element.append(destroy_button);
+    $("#items").append(list_element);
+    blocks_counter++;
+};
+
+
+$( function() {
+    $( "#items" ).sortable({ containment: "parent" });
+    $( "#items" ).disableSelection();
+} );
+$("#add_text").click(function () {
+    var list_element = $("<li class='list-group-item text-item'</li>");
+    list_element.append($("<label><%= t('views.forms.steps.items.titles.text')%></label>"));
+    list_element.append($("<textarea class='form-control' rows='3' placeholder='<%= t('views.forms.steps.items.placeholders.text') %>'></textarea>"));
+    var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+    $(list_element).attr("id", "list_element_" + blocks_counter);
+    $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+    $(destroy_button).attr("onclick", "deleteElement(id)");
+    list_element.append(destroy_button);
+    $("#items").append(list_element);
+    blocks_counter++;
+});
+
+var deleteElement = function (id) {
+    $("#list_element_" + id.split("_")[2]).remove();
+};
+
+$("#add_video").click(function () {
+    var list_element = $("<li class='list-group-item video-item'></li>");
+    list_element.append($("<label><%= t('views.forms.steps.items.titles.video')%></label>"));
+    list_element.append($("<input class='form-control' rows='3' placeholder='<%= t('views.forms.steps.items.placeholders.video') %>'></input>"));
+    var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top: 10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
+    $(list_element).attr("id", "list_element_" + blocks_counter);
+    $(destroy_button).attr("id", "button_destroy_" + blocks_counter);
+    $(destroy_button).attr("onclick", "deleteElement(id)");
+    list_element.append(destroy_button);
+    $("#items").append(list_element);
+    blocks_counter++;
+});
+});
+
+
+
