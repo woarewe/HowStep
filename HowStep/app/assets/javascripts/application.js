@@ -16,7 +16,5 @@
 //= require tether
 //= require bootstrap
 //= require cloudinary
-//= require jquery.turbolinks
-//= require turbolinks
 //= require rails-ujs
 //= require_tree .

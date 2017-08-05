@@ -5,6 +5,9 @@
     </a>
   </div>
   <div class="col-md-10">
+    <a href=<%= user_url(comment.user) %>>
+      <%= comment.user.name %>
+    </a>
     <%= comment.content %>
   </div>
   <div class="col-md-12">
