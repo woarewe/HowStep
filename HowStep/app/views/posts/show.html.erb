@@ -5,6 +5,8 @@
       <h1 align="center"><%= @post.title %></h1>
       <%= rating_for @post, 'content' %>
       <hr/>
+      <%= will_paginate @steps %>
+      <hr/>
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
       <div class="panel panel-default">

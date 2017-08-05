@@ -33,7 +33,7 @@
         <hr/>
       </div>
       <div class="col-md-12">
-        <ul id="items" class="list-group" style="margin-inside: 5px;">
+        <ul id="items" class="list-group">
         </ul>
       </div>
       <div class="col-md-12">
@@ -106,7 +106,7 @@
 
 
         $( function() {
-            $( "#items" ).sortable({ containment: "parent" });
+            $( "#items" ).sortable();
             $( "#items" ).disableSelection();
         } );
         $("#add_text").click(function () {

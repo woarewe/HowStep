@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :steps, except: [:index, :show]
   end
 
-  post 'save', to: 'steps#update', as: 'save'
+  match '*path' => redirect('/'), via: :get
 
   mount ActionCable.server => '/cable'
 
