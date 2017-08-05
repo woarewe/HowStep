@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @steps = @post.steps.paginate(page: params[:page])
+    @steps = @post.steps
+    @comment = Comment.new
   end
 
   def new
