@@ -8,7 +8,7 @@
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
       <div class="panel panel-default">
-        <div class="panel-body" id="comments">
+        <div class="panel-body" id="comments" data-post=<%= @post.id %>>
           <%= render @post.comments %>
         </div>
       </div>
