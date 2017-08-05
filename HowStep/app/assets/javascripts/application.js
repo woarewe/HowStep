@@ -12,9 +12,9 @@
 //
 //= require add_step.js
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui
 //= require tether
 //= require bootstrap
 //= require cloudinary
-//= require rails-ujs
 //= require_tree .
