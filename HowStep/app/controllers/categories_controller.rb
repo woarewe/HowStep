@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   def create
+    Category.create(params.require(:category).permit(:title))
+    redirect_to root_path
   end
 
   def destroy

@@ -102,5 +102,6 @@ en:
             video: 'Paste here youtube link...'
       comments:
         placeholder: 'Leave a comment...'
-
+      categories:
+        name: 'Name of category'
 
