@@ -7,13 +7,14 @@
           <%= f.text_field :title, class: 'form-control w-100' %>
           <%= f.label t('views.forms.posts.tags') %>
           <%= f.text_field :tag_list, class: 'form-control w-100' %>
+          <%= f.label t('views.forms.categories.name') %>
+          <%= select_tag :category_id, options_for_select( Category.all.collect { |c| [c.title, c.id] } ), class: 'form-control w-100' %>
           <hr/>
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <%= f.submit t('views.forms.posts.create'), class: 'btn btn-success w-100' %>
             </div>
-
       <% end %>
             <div class="col-md-5">
               <%= link_to t('views.forms.posts.menu'), root_path, class: 'btn btn-primary w-100' %>

@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  respond_to :js, :html, :json
+  respond_to :js, :html
 
   def create
     @post = Post.find(params[:post_id])
@@ -21,9 +21,12 @@ class StepsController < ApplicationController
     @step = @post.steps.find(params[:id])
 
     respond_to do |format|
-      if @step.update( title: params[:title], content: params[:content])
-        format.html { redirect_to edit_post_path(@post) }
-        flash[:notice] = t('controllers.steps.update.notice')
+      if @step.update(title: params[:title], content: params[:content])
+        format.html { render js: 'window.location = ' + edit_post_path(@post) }
+        format.js { render js: 'window.location = ' + edit_post_path(@post) }
+      else
+        format.html { render js: 'window.location = ' + edit_post_path(@post) }
+        format.js { render js: 'window.location = ' + edit_post_path(@post) }
       end
     end
   end
