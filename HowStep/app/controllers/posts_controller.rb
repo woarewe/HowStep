@@ -5,7 +5,11 @@ class PostsController < ApplicationController
     if(params[:tag])
       @posts = Post.tagged_with(params[:tag])
     else
-     @posts = Post.all
+      if params[:search]
+        @posts = Post.search(params[:search])
+      else
+        @posts = Post.all
+      end
     end
   end
 

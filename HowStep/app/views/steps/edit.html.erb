@@ -49,8 +49,9 @@
 </div>
 
 <script>
-    $(document).ready( function () {
+    var blocks_counter = 1;
 
+    $(document).ready( function () {
 
         $('#save_step_changes').click( function() {
             var list_items = document.getElementsByClassName("list-group-item");
@@ -138,8 +139,4 @@
             blocks_counter++;
         });
     });
-
-
-
-
 </script>

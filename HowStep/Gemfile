@@ -69,4 +69,4 @@ gem 'bootstrap-social-rails'
 gem 'rails-assets-tether'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
-
+gem 'search_cop'
