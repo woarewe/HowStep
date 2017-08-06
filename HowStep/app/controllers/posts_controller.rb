@@ -25,8 +25,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.create(post_params)
-    redirect_to action: 'edit', id: @post.id
+    post = current_user.posts.create(post_params)
+    if post.persisted?
+      redirect_to edit_post_path(post)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -44,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :tag_list)
+    params.require(:post).permit(:title, :tag_list, :category_id).merge({ category_id: params[:category_id]})
   end
 
   def check_update(post)
