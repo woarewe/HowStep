@@ -3,6 +3,8 @@
     <%= f.label t('views.forms.posts.title') %>
     <%= f.text_field :title, class: 'form-control'%>
 
+    <%= f.label t('views.forms.posts.category') %>
+    <%= select_tag :category_id, options_for_select( Category.all.collect { |c| [c.title, c.id] }, [@post.category.title, @post.category.id] ), class: 'form-control w-100' %>
     <hr/>
     <div class="row">
       <div class="col-md-6">
