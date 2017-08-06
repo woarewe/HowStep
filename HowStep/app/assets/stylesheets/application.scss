@@ -1,2 +1,16 @@
 @import "bootstrap";
 @import "bootstrap-social";
+@import "posts";
+@import "categories";
+@import "steps";
+@import "users";
+@import "comments";
+
+body {
+  background-color: #666666;
+  color: #F7F7F7;
+}
+
+.row {
+  width: 100%;
+}

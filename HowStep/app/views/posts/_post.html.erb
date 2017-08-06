@@ -1,3 +1,20 @@
-<div class="col-md-9">
- <%= link_to post.title, post %>
+<div class="card w-100">
+  <div class="card-header"> <%= rating_for post, 'content' %></div>
+  <div class="card-block">
+    <h2 class="card-title"><%= post.title %></h2>
+    <h3>
+      <%= link_to post.category.title, category_path(post.category), class: 'badge badge-warning' %>
+    </h3>
+    <p>
+      <% post.tag_list.each do |tag| %>
+          <%= link_to tag, tag_path(tag), class: 'badge badge-primary' %>
+      <% end %>
+    </p>
+    <div class="btn-group w-100">
+      <%= link_to t('views.forms.user.posts.show'), post_path(post), class: 'btn btn-secondary w-25' %>
+      <% if can? :edit, post %>
+          <%= link_to t('views.forms.user.posts.edit'), edit_post_path(post), class: 'btn btn-secondary w-25' %>
+      <% end %>
+    </div>
+  </div>
 </div>
