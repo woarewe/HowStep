@@ -3,7 +3,7 @@ class StepsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @step = @post.steps.create steps_params
+    @step = @post.steps.create step_params
 
     redirect_to edit_post_path(@post)
   end
@@ -21,7 +21,7 @@ class StepsController < ApplicationController
     @step = @post.steps.find(params[:id])
 
     respond_to do |format|
-      if @step.update(content: params[:content], title: params[:title])
+      if @step.update( title: params[:title], content: params[:content])
         format.html { redirect_to edit_post_path(@post) }
         flash[:notice] = t('controllers.steps.update.notice')
       end
@@ -30,7 +30,7 @@ class StepsController < ApplicationController
 
   private
 
-  def steps_params
+  def step_params
     params.require(:step).permit(:title)
   end
 end

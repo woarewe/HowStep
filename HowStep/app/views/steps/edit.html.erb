@@ -5,7 +5,7 @@
     <form>
       <div class="form-group">
         <label for="step_title" class="col-form-label">Step title</label>
-        <input class="form-control" id="step_title" value=<%= @step.title %>>
+        <input class="form-control" id="title_of_step" value=<%= @step.title %>>
       </div>
       <hr/>
       <div class="form-group">
@@ -77,7 +77,7 @@
             $.ajax({
                 url : '<%= post_step_path(@post, @step) %>',
                 type : "put",
-                data : { content: content, title: $('#step_title').value }
+                data : { content: content, title: $('#title_of_step').val() },
             });
 
         });
