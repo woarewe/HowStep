@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'categories/create'
+
+  get 'categories/destroy'
+
+  get 'categories/new'
+
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: 'home#index'
 
   resources :users, except: [:new]
+  resources :categories, except: [:update, :edit]
 
   resources :posts do
     resources :steps, except: [:index, :show]

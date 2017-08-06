@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804213237) do
+ActiveRecord::Schema.define(version: 20170806011310) do
 
   create_table "average_caches", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "rater_id"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20170804213237) do
     t.float "avg", limit: 24, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170804213237) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -129,6 +137,7 @@ ActiveRecord::Schema.define(version: 20170804213237) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "steps", "posts"
 end
