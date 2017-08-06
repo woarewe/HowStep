@@ -34,10 +34,12 @@ en:
       brand: 'HowStep'
       posts: 'Posts'
       users: 'Users'
+      categories: 'Categories'
       profile:
         show: 'Profile'
         edit: 'Edit'
         post: 'Create post'
+        category: 'Create category'
         sign:
           out: 'Log Out'
           in: 'Sign in'

@@ -7,12 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active align">
-        <a class="nav-link" href=<%= posts_path %>>
-           <h3></h3> <%= t('header.posts')%>
-        </a>
+        <a class="nav-link" href=<%= posts_path %>><%= t('header.posts')%></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href=<%= users_path %>><%= t('header.users') %></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href=<%= categories_path %>><%= t('header.categories')%></a>
       </li>
       <li class="nav-item">
         <%= render 'layouts/sign_in_item' %>
