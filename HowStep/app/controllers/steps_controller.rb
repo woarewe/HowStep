@@ -22,7 +22,8 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.update(content: params[:content], title: params[:title])
-        format.html { redirect_to edit_post_path(@post), notice: t('controllers.steps.update.notice') }
+        format.html { redirect_to edit_post_path(@post) }
+        flash[:notice] = t('controllers.steps.update.notice')
       end
     end
   end

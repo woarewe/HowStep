@@ -11,7 +11,9 @@
       Steps
     </h3>
     <ul class="list-group" id="sortable">
-      <%= render @post.steps %>
+      <% @post.steps.each do |step| %>
+          <%=  link_to  step.title, edit_post_step_path(@post, step), class: 'list-group-item list-group-item-action' %>
+      <% end %>
     </ul>
   </div>
   <div class="col-md-2"></div>

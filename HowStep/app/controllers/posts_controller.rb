@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :set_post, except: [:index, :create, :new]
 
   def index
-    @posts = Post.all
+    if(params[:tag])
+      @posts = Post.tagged_with(params[:tag])
+    else
+     @posts = Post.all
+    end
   end
 
   def show
@@ -40,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title)
+    params.require(:post).permit(:title, :tag_list)
   end
 
   def check_update(post)
