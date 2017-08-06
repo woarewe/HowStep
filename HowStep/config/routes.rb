@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :steps, except: [:index, :show]
   end
 
+  get 'tags/:tag', to: 'posts#index', as: :tag
   match '*path' => redirect('/'), via: :get
 
   mount ActionCable.server => '/cable'

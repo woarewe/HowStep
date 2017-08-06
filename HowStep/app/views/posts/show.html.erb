@@ -7,6 +7,15 @@
       <hr/>
       <%= will_paginate @steps %>
       <hr/>
+      <%= t('views.forms.posts.tags') %>
+
+      <% @post.tag_list.each do |tag| %>
+        <%= link_to tag, tag_path(tag), class: 'badge badge-pill badge-info' %>
+      <% end %>
+      <div id="steps">
+        <%= render @steps %>
+      </div>
+      <h/>
       <h2 align="center"><%= t('views.forms.posts.comments') %></h2>
       <hr/>
       <div class="panel panel-default">
