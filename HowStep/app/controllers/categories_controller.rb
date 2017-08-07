@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def create
-    Category.create(params.require(:category).permit(:title))
+    Category.create(category_params)
     redirect_to categories_path
   end
 
@@ -20,5 +20,11 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:title)
   end
 end
