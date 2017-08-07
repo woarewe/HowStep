@@ -6,8 +6,8 @@
       <%= link_to post.category.title, category_path(post.category), class: 'badge badge-warning' %>
     </h3>
     <p>
-      <% post.tag_list.each do |tag| %>
-          <%= link_to tag, tag_path(tag), class: 'badge badge-primary' %>
+      <% post.tags.each do |tag| %>
+          <%= link_to tag, tag_path(tag.name), class: 'badge badge-primary' %>
       <% end %>
     </p>
     <div class="btn-group w-100">

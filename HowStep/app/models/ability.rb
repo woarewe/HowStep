@@ -11,7 +11,9 @@ class Ability
       can :manage, User, id: user.id
       can :manage, Post, user_id: user.id
       can :create, Comment
-      can :create, Step
+      can :manage, Step do |step|
+        step.post.user_id == user.id
+      end
       end
     end
 end

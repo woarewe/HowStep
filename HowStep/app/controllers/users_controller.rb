@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.includes(posts: [:tags, :category]).find(params[:id])
   end
 
 end

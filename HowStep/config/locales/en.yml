@@ -62,6 +62,8 @@ en:
     steps:
       update:
         notice: 'Step has successfully update.'
+      destroy:
+        notice: 'Step has successfully update.'
     cancan:
       alert: 'You do not have rights for this action.'
   views:
@@ -93,6 +95,7 @@ en:
         add: 'Add a step'
         title: 'Step title'
         content: 'Content'
+        destroy: 'Destroy'
         items:
           buttons:
             text: 'Add text'
@@ -109,6 +112,7 @@ en:
             video: 'Paste here youtube link...'
       comments:
         placeholder: 'Leave a comment...'
+        alert: 'Login to leave a comment.'
       categories:
         name: 'Name of category'
 

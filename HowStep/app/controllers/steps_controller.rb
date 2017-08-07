@@ -1,33 +1,25 @@
 class StepsController < ApplicationController
-  respond_to :js, :html
+  before_action :set_post
 
   def create
-    @post = Post.find(params[:post_id])
     @step = @post.steps.create step_params
-
     redirect_to edit_post_path(@post)
   end
 
   def edit
-    @post = Post.find(params[:post_id])
     @step = @post.steps.find(params[:id])
   end
 
   def destroy
+    @step = Step.find(params[:id]).destroy
+    flash[:notice] = t('controllers.steps.destroy.notice')
+    redirect_to edit_post_path(@post)
   end
 
   def update
-    @post = Post.find(params[:post_id])
     @step = @post.steps.find(params[:id])
-
-    respond_to do |format|
-      if @step.update(title: params[:title], content: params[:content])
-        format.html { render js: 'window.location = ' + edit_post_path(@post) }
-        format.js { render js: 'window.location = ' + edit_post_path(@post) }
-      else
-        format.html { render js: 'window.location = ' + edit_post_path(@post) }
-        format.js { render js: 'window.location = ' + edit_post_path(@post) }
-      end
+    if @step.update(title: params[:title], content: params[:content])
+      flash[:notice] = 'All is good'
     end
   end
 
@@ -35,5 +27,9 @@ class StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:title)
+  end
+
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 end

@@ -3,12 +3,12 @@ class PostsController < ApplicationController
 
   def index
     if(params[:tag])
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).includes(:category, :tags)
     else
       if params[:search]
-        @posts = Post.search(params[:search])
+        @posts = Post.search(params[:search]).includes(:category, :tags)
       else
-        @posts = Post.all
+        @posts = Post.all.includes(:category, :tags)
       end
     end
   end
@@ -64,6 +64,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.includes(:tags, :category).find(params[:id])
   end
 end
