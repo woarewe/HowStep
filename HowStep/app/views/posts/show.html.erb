@@ -18,12 +18,19 @@
         </div>
       </div>
 
-      <%= will_paginate @steps %>
-      <div id="steps">
-        <%= render @steps %>
+      <div class="card text-center">
+        <h4 class="card-title">
+          <%= t('views.forms.steps.pages') %>
+        </h4>
+        <div class="card-block">
+          <div id="steps">
+            <%= render @steps %>
+          </div>
+        </div>
+        <div class="card-footer">
+            <%= will_paginate @steps %>
+        </div>
       </div>
-      <hr/>
-
       <div class="card">
         <div class="card-header">
           <%= t('views.forms.posts.comments') %>
