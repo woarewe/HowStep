@@ -1,1 +1,21 @@
-<%= link_to category.title, category_path(category) %> <br>
+<div class="list-group-item categories">
+  <div class="w-100 row">
+    <% if can? :destroy, category %>
+    <a  class="list-group-item list-group-item-action col-md-10" href=<%= category_path(category) %>>
+      <h6>
+        <%= category.title %>
+      </h6>
+    </a>
+    <div class="col-md-2">
+      <%= link_to t('views.forms.user.posts.destroy'), category, method: :delete, data: { confirm: t('views.forms.confirm') },
+                  class: 'btn btn-danger' %>
+    </div>
+    <% else %>
+        <a  class="list-group-item list-group-item-action col-md-12" href=<%= category_path(category) %>>
+          <h6>
+            <%= category.title %>
+          </h6>
+        </a>
+    <% end %>
+  </div>
+</div>
