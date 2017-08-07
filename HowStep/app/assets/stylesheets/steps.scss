@@ -1,3 +1,23 @@
 .color-black {
   color: black;
 }
+
+.unit {
+  padding-top: 20px;
+}
+
+.unit img {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  max-height: 500px;
+  max-width: 50%;
+}
+
+.unit iframe {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  height: 300px;
+  width: 500px;
+}

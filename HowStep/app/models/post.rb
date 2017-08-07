@@ -10,7 +10,6 @@ class Post < ApplicationRecord
   search_scope :search do
     attributes :title
     attributes comment: 'comments.content'
-    attributes step: 'steps.content'
   end
 
   acts_as_taggable

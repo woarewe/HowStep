@@ -96,6 +96,7 @@ en:
         title: 'Step title'
         content: 'Content'
         destroy: 'Destroy'
+        pages: 'Pages'
         items:
           buttons:
             text: 'Add text'
