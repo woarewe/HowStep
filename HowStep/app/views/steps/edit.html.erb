@@ -40,12 +40,14 @@
         <hr/>
         <div class="row">
           <div class="col-md-1"></div>
-        <button id="save_step_changes" class="btn btn-outline-primary w-50 col-md-4" data-remote="true">
+        <button id="save_step_changes" class="btn btn-outline-primary w-25 col-md-2" data-remote="true">
             <%= t('views.forms.steps.items.buttons.save') %>
         </button>
           <div class="col-md-2"></div>
         <%= link_to t('views.forms.steps.destroy'),[@post, @step], method: :delete,
-                    data: { confirm: t('views.forms.confirm') }, class: 'btn btn-outline-danger w-50 col-md-4'  %>
+                    data: { confirm: t('views.forms.confirm') }, class: 'btn btn-outline-danger w-25 col-md-2'  %>
+          <div class="col-md-2"></div>
+          <%= link_to t('views.forms.steps.back'), edit_post_path(@post), class: 'btn btn-outline-warning w-25 col-md-2'  %>
           <div class="col-md-1"></div>
         </div>
       </div>
@@ -108,6 +110,8 @@
             list_element.append($("<label><%= t('views.forms.steps.items.titles.image')%></label>"));
             var image = $("<img>");
             $(image).attr("src", image_url);
+            $(image).attr("width", '800');
+//            $(image).attr("height", '500');
             list_element.append(image);
             var destroy_button = ($("<button type='danger' class='btn btn-danger button-margin' style='margin-top:10px'><%= t('views.forms.steps.items.buttons.destroy') %></button>"));
             $(list_element).attr("id", "list_element_" + blocks_counter);

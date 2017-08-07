@@ -97,6 +97,7 @@ en:
         content: 'Content'
         destroy: 'Destroy'
         pages: 'Pages'
+        back: 'Back'
         items:
           buttons:
             text: 'Add text'
