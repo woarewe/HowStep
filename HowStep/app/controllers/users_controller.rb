@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    check_user_rights :edit, @user
   end
 
   def update
@@ -36,8 +35,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def check_user_rights(action, model)
-    unless can? action, model
+  def check_user_rights(action)
+    unless can? action, @user
       flash['alert'] = t('controllers.cancan.alert')
       redirect_to root_path
     end

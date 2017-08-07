@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  root to: 'home#index'
+  root 'home#index'
 
   resources :users, except: [:new]
   resources :categories, except: [:update, :edit]
