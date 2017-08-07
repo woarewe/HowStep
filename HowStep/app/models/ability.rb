@@ -10,7 +10,7 @@ class Ability
       can :create, Post
       can :manage, User, id: user.id
       can :manage, Post, user_id: user.id
-      can :create, Comment
+      can :create, Comment, user_id: user.id
       can :create, Step
       end
     end
