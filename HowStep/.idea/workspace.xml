@@ -14,9 +14,11 @@
       <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/steps/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="62" column="6" lean-forward="false" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="370">
+              <caret line="49" column="105" lean-forward="false" selection-start-line="49" selection-start-column="105" selection-end-line="49" selection-end-column="105" />
+              <folding>
+                <element signature="e#1824#1851#0#ruby" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +98,8 @@
       <file leaf-file-name="en.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+            <state relative-caret-position="339">
+              <caret line="99" column="20" lean-forward="false" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -166,11 +168,11 @@
         <option value="$PROJECT_DIR$/app/controllers/steps_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/rater_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/post.rb" />
-        <option value="$PROJECT_DIR$/config/locales/en.yml" />
         <option value="$PROJECT_DIR$/app/views/posts/show.html.erb" />
         <option value="$PROJECT_DIR$/app/models/ability.rb" />
         <option value="$PROJECT_DIR$/app/views/steps/_step.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/steps.scss" />
+        <option value="$PROJECT_DIR$/config/locales/en.yml" />
         <option value="$PROJECT_DIR$/app/views/steps/edit.html.erb" />
       </list>
     </option>
@@ -432,12 +434,12 @@
       <workItem from="1502082027427" duration="8008000" />
       <workItem from="1502092908946" duration="1327000" />
       <workItem from="1502094255869" duration="11575000" />
-      <workItem from="1502106086538" duration="2332000" />
+      <workItem from="1502106086538" duration="3502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223963000" />
+    <option name="totallyTimeSpent" value="225133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1058" extended-state="6" />
@@ -779,14 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -837,11 +831,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="99" column="20" lean-forward="false" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/steps/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="62" column="6" lean-forward="false" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="370">
+          <caret line="49" column="105" lean-forward="false" selection-start-line="49" selection-start-column="105" selection-end-line="49" selection-end-column="105" />
+          <folding>
+            <element signature="e#1824#1851#0#ruby" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
