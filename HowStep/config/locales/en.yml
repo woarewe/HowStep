@@ -43,8 +43,6 @@ en:
         sign:
           out: 'Log Out'
           in: 'Sign in'
-
-
   controllers:
     users:
       update:
@@ -66,9 +64,6 @@ en:
         notice: 'Step has successfully update.'
     cancan:
       alert: 'You do not have rights for this action.'
-
-
-
   views:
     forms:
       save: 'Update account'
