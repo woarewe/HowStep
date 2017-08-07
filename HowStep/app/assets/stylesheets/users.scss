@@ -1,7 +1,8 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-item {
+  margin-bottom: 10px;
+  box-shadow: gray 5px 5px;
+}
 
-.align-center {
-  align: center;
+.user-name {
+  text-shadow: #730E15 5px 5px;
 }
