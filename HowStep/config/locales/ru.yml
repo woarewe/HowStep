@@ -1,0 +1,82 @@
+ru:
+  header:
+      brand: 'ШагКак'
+      posts: 'Записи'
+      users: 'Пользователи'
+      categories: 'Категории'
+      profile:
+        show: 'Профиль'
+        edit: 'Редактировать'
+        post: 'Создать запись'
+        category: 'Создать категорию'
+        sign:
+          out: 'Выйти'
+          in: 'Войти'
+  controllers:
+    users:
+      update:
+        alert: 'Произошла ошибка. Повторите позже.'
+        notice: 'Ваш профиль успешно обновлен.'
+      destroy:
+        notice: 'Профиль успешно удален.'
+    posts:
+      destroy:
+        notice: 'Запись успешно удалена.'
+      update:
+        alert: 'Произошла ошибка. Повторите позже.'
+        notice: 'Запись успешно обновлена.'
+    categories:
+       destroy:
+          notice: 'Категория успешно удалена.'
+    steps:
+      update:
+        notice: 'Шаг успешно обвнолен.'
+    cancan:
+      alert: 'Недостаточно прав.'
+  views:
+    forms:
+      save: 'Обновить профиль'
+      destroy: 'Удалить профиль'
+      confirm: 'Вы уверены?'
+      user:
+        name: 'Имя'
+        email: 'Почта'
+        posts:
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          show: 'Показать'
+        count: 'Число записей: '
+        wall: 'Стена'
+        page: 'Показать профиль'
+      posts:
+        title: 'Название'
+        create: 'Создать'
+        tags: 'Теги'
+        menu: 'На главную'
+        update: 'Обновить запись'
+        destroy: 'Удалить запись'
+        comments: 'Комментарии'
+        category: 'Категории'
+        empty: 'Список записей пуст.'
+      steps:
+        add: 'Добавить шаг'
+        title: 'Имя шага'
+        content: 'Содержание'
+        items:
+          buttons:
+            text: 'Добавить текст'
+            image: 'Добавить картинку'
+            video: 'Добавить видео'
+            destroy: 'Удалить'
+            save: 'Сохранить'
+          titles:
+            text: 'Текст'
+            image: 'Картинка'
+            video: 'Видео'
+          placeholders:
+            text: 'Печатай сюда...'
+            video: 'Вставьте ссылку на ютуб...'
+      comments:
+        placeholder: 'Оставить комментарий...'
+      categories:
+        name: 'Имя категории'
