@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(posts: [:tags]).find(params[:id])
   end
 
   private

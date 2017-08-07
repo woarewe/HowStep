@@ -40,6 +40,10 @@
          <textarea id="comment_area" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %>  row="2"
                    type="text" data-behavior="post_speaker" class="form-control" placeholder='<%= t('views.forms.comments.placeholder') %>'></textarea>
         </div>
+        <% else %>
+          <div class="card-footer text-muted">
+            <%= t('views.forms.comments.alert') %>
+          </div>
         <% end %>
       </div>
     </div>
